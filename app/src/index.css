@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--color-blue-500);
+  --color-primaryDarker: var(--color-blue-700);
+
+  --color-textDark: var(--color-slate-900);
+  --color-textDarker: var(--color-slate-700);
+  --color-textLighter: var(--color-slate-400);
+  --color-textLight: var(--color-slate-100);
+}
+
+.buttonSmall {
+  @apply bg-primary text-textLight font-semibold p-2 rounded-lg hover:bg-primaryDarker ease-in-out transition-all cursor-pointer text-lg;
+}
+
+.headingItem {
+  @apply hover:text-primaryDarker transition-all cursor-pointer text-lg text-textDarker;
+}
