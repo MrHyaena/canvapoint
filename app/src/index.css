@@ -1,19 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import "tailwindcss";
 
 @theme {
+  --font-oswald: "Oswald", "sans-serif";
+  --font-roboto: "Roboto", "sans-serif";
+
   --color-primary: var(--color-blue-500);
   --color-primaryDarker: var(--color-blue-700);
 
   --color-textDark: var(--color-slate-900);
-  --color-textDarker: var(--color-slate-700);
+  --color-textDarker: var(--color-zinc-700);
   --color-textLighter: var(--color-slate-400);
   --color-textLight: var(--color-slate-100);
 }
 
 .buttonSmall {
-  @apply bg-primary text-textLight font-semibold p-2 rounded-lg hover:bg-primaryDarker ease-in-out transition-all cursor-pointer text-lg;
+  @apply bg-primary text-textLight font-bold p-2 rounded-lg hover:bg-primaryDarker ease-in-out transition-all cursor-pointer text-lg;
 }
 
 .headingItem {
-  @apply hover:text-primaryDarker transition-all cursor-pointer text-lg text-textDarker;
+  @apply hover:text-primaryDarker transition-all cursor-pointer text-lg text-slate-800 font-bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+legend {
+  @apply font-oswald;
+}
+
+p,
+a,
+legend {
 }

@@ -14,6 +14,7 @@ export default function TemplatesList() {
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut excepturi itaque quos veritatis odio, sint animi ipsum! Optio, architecto tenetur magni eos aspernatur eum amet magnam explicabo officiis fuga praesentium!",
       link: "www.google.com",
+      templatesNumber: 100,
     },
     {
       image: image,
@@ -24,6 +25,7 @@ export default function TemplatesList() {
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut excepturi itaque quos veritatis odio, sint animi ipsum! Optio, architecto tenetur magni eos aspernatur eum amet magnam explicabo officiis fuga praesentium!",
       link: "www.google.com",
+      templatesNumber: 200,
     },
     {
       image: image,
@@ -34,12 +36,13 @@ export default function TemplatesList() {
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut excepturi itaque quos veritatis odio, sint animi ipsum! Optio, architecto tenetur magni eos aspernatur eum amet magnam explicabo officiis fuga praesentium!",
       link: "www.google.com",
+      templatesNumber: 1000,
     },
   ];
 
   return (
     <>
-      <div className="flex gap-10 flex-wrap ">
+      <div className="grid grid-cols-4 gap-10 flex-wrap ">
         {items.map((item) => {
           return <TemplateItem item={item} />;
         })}

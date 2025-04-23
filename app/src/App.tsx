@@ -10,7 +10,7 @@ import Navbar from "./components/Navbar";
 function ProtectedRoute() {
   return (
     <>
-      <div className="grid gird-rows-[100px_1fr] gap-5 w-full bg-stone-100 p-5">
+      <div className="grid gird-rows-[100px_1fr] gap-10 w-full bg-slate-100 p-5">
         <Navbar />
         <div>
           <main>
