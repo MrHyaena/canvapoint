@@ -30,14 +30,18 @@ export default function TemplateItem({ item }: Props) {
         <TemplateDetails setToggle={setToggleDetail} item={item} />
       )}
       <div className="bg-white rounded-2xl shadow-lg shadow-slate-200">
-        <img
-          src={item.image}
-          className="rounded-t-2xl min-h-[250px] w-full object-cover z-0"
-        />
-        <div className="flex justify-end pr-3">
-          <div className="w-[80px] h-[80px] bg-blue-500 shadow-[0px_0px_8px_0px] shadow-slate-800 mt-[-70px] mb-[-40px] rounded-full flex flex-col items-center justify-center text-textLight font-semibold">
-            <p className="text-xl mt-[-5px]">{item.templatesNumber}</p>
-            <p className="mt-[-5px]  text-sm">šablon</p>
+        <div
+          style={{
+            backgroundImage: `url(${item.image})`,
+            backgroundSize: "cover",
+          }}
+          className="rounded-t-2xl min-h-[250px] w-full object-cover z-0 flex items-end justify-end"
+        >
+          <div className="flex justify-end pr-3">
+            <div className="w-[80px] h-[80px] bg-primary shadow-[0px_0px_8px_0px] shadow-slate-800 mt-[-70px] mb-[-40px] rounded-xl flex flex-col items-center justify-center text-textLight font-semibold">
+              <p className="text-xl mt-[-5px]">{item.templatesNumber}</p>
+              <p className="mt-[-5px]  text-sm">karet</p>
+            </div>
           </div>
         </div>
 
@@ -46,7 +50,7 @@ export default function TemplateItem({ item }: Props) {
             {item.category.map((item: string) => {
               return (
                 <>
-                  <p className="p-1 rounded-md font-semibold text-sm bg-secondary text-textLight">
+                  <p className="p-1 px-2 rounded-md font-semibold text-sm bg-secondary text-textLight">
                     {item}
                   </p>
                 </>
