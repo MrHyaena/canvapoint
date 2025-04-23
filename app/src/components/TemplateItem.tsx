@@ -1,7 +1,8 @@
 import { faSquare, IconLookup } from "@fortawesome/free-regular-svg-icons";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
+import TemplateDetails from "./TemplateDetails";
 
 interface Props {
   item: {
@@ -17,36 +18,27 @@ interface Props {
 }
 
 export default function TemplateItem({ item }: Props) {
+  const [toggleDetail, setToggleDetail] = useState(false);
+
   function truncate(text: string) {
     return text.slice(0, 130) + "...";
   }
 
   return (
     <>
-      <div className="bg-white rounded-2xl shadow-md shadow-slate-200">
+      {toggleDetail && (
+        <TemplateDetails setToggle={setToggleDetail} item={item} />
+      )}
+      <div className="bg-white rounded-2xl shadow-lg shadow-slate-200">
         <img
           src={item.image}
           className="rounded-t-2xl min-h-[250px] w-full object-cover z-0"
         />
         <div className="flex justify-end pr-3">
-          {item.templatesNumber > 0 && item.templatesNumber <= 100 && (
-            <div className="w-[80px] h-[80px] bg-blue-500 shadow-[0px_0px_7px_2px] shadow-slate-700 mt-[-40px] mb-[-40px] rounded-full flex flex-col items-center justify-center text-textLight font-semibold z-100">
-              <p className="text-xl mt-[-5px]">{item.templatesNumber}</p>
-              <p className="mt-[-5px]  text-sm">šablon</p>
-            </div>
-          )}
-          {item.templatesNumber > 101 && item.templatesNumber <= 500 && (
-            <div className="w-[80px] h-[80px] bg-blue-500 shadow-[0px_0px_7px_2px] shadow-slate-700 mt-[-40px] mb-[-40px] rounded-full flex flex-col items-center justify-center text-textLight font-semibold z-100">
-              <p className="text-xl mt-[-5px]">{item.templatesNumber}</p>
-              <p className="mt-[-5px]  text-sm">šablon</p>
-            </div>
-          )}
-          {item.templatesNumber > 501 && (
-            <div className="w-[80px] h-[80px] bg-blue-500 shadow-[0px_0px_7px_2px] shadow-slate-700 mt-[-40px] mb-[-40px] rounded-full flex flex-col items-center justify-center text-textLight font-semibold z-100">
-              <p className="text-xl mt-[-5px]">{item.templatesNumber}</p>
-              <p className="mt-[-5px]  text-sm">šablon</p>
-            </div>
-          )}
+          <div className="w-[80px] h-[80px] bg-blue-500 shadow-[0px_0px_8px_0px] shadow-slate-800 mt-[-70px] mb-[-40px] rounded-full flex flex-col items-center justify-center text-textLight font-semibold">
+            <p className="text-xl mt-[-5px]">{item.templatesNumber}</p>
+            <p className="mt-[-5px]  text-sm">šablon</p>
+          </div>
         </div>
 
         <div className="min-h-[200px] p-5 flex flex-col gap-3">
@@ -54,7 +46,7 @@ export default function TemplateItem({ item }: Props) {
             {item.category.map((item: string) => {
               return (
                 <>
-                  <p className="p-1 rounded-md font-semibold text-sm bg-primary text-textLight">
+                  <p className="p-1 rounded-md font-semibold text-sm bg-secondary text-textLight">
                     {item}
                   </p>
                 </>
@@ -74,13 +66,13 @@ export default function TemplateItem({ item }: Props) {
               return (
                 <>
                   {item == "square" && (
-                    <div className="w-[25px] h-[25px]  rounded-md bg-zinc-300 flex items-end justify-center font-semibold text-sm text-textDarker"></div>
+                    <div className="w-[25px] h-[25px]  rounded-md bg-slate-300 flex items-end justify-center font-semibold text-sm text-textDarker"></div>
                   )}
                   {item == "portrait" && (
-                    <div className="w-[25px] h-[30px] rounded-md bg-zinc-400 flex items-end justify-center text-sm text-textDarker"></div>
+                    <div className="w-[25px] h-[30px] rounded-md bg-slate-400 flex items-end justify-center text-sm text-textDarker"></div>
                   )}
                   {item == "story" && (
-                    <div className="w-[25px] h-[35px] rounded-md bg-zinc-500 flex items-end justify-center text-sm text-textDarker"></div>
+                    <div className="w-[25px] h-[35px] rounded-md bg-slate-500 flex items-end justify-center text-sm text-textDarker"></div>
                   )}
                 </>
               );
@@ -88,8 +80,15 @@ export default function TemplateItem({ item }: Props) {
           </div>
           <div className="border-b-1 border-zinc-200"></div>
           <div className="w-full grid grid-cols-[4fr_1fr] gap-2">
-            <button className="buttonSmall">Detail</button>
-            <button className="buttonSmall">
+            <button
+              className="buttonSmall"
+              onClick={() => {
+                setToggleDetail(!toggleDetail);
+              }}
+            >
+              Detail
+            </button>
+            <button className="bg-slate-800 text-textLight font-bold p-2 rounded-lg hover:bg-primaryDarker ease-in-out transition-all cursor-pointer text-lg">
               <FontAwesomeIcon icon={faDownload} />
             </button>
           </div>

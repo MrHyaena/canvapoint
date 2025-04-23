@@ -1,22 +1,29 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Homepage from "./pages/Homepage";
 import Account from "./pages/Account";
-import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
+import Templates from "./pages/Templates";
+import Homepage from "./pages/Homepage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquareCaretUp } from "@fortawesome/free-regular-svg-icons";
+import { faCircleUp } from "@fortawesome/free-solid-svg-icons";
 
 function ProtectedRoute() {
   return (
     <>
-      <div className="grid gird-rows-[100px_1fr] gap-10 w-full bg-slate-100 p-5">
+      <div className="w-16 h-16 fixed bg-secondary rounded-xl bottom-10 right-10 flex items-center justify-center">
+        <FontAwesomeIcon
+          icon={faCircleUp}
+          className="text-4xl text-textLight"
+        />
+      </div>
+      <div className="grid gird-rows-[100px_1fr] gap-10 w-full bg-linear-210 from-slate-100 to-white p-5">
         <Navbar />
-        <div>
+        <div className="max-w-[1500px] justify-self-center">
           <main>
             <Routes>
               <Route path="*" element={<Homepage />} />
               <Route path="/account" element={<Account />} />
+              <Route path="/templates" element={<Templates />} />
             </Routes>
           </main>
         </div>
@@ -31,7 +38,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/*" element={<ProtectedRoute />} />
-          <Route path="/account" element={<Account />} />
           <Route path="/login" element={<Account />} />
           <Route path="/password" element={<Account />} />
           <Route path="/password/reset" element={<Account />} />

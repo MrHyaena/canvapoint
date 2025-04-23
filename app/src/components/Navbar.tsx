@@ -1,12 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/shopr-google.png";
 
 export default function Navbar() {
   return (
-    <div className="bg-white p-5 rounded-xl  shadow-md shadow-slate-200 items-center grid grid-cols-3">
-      <div></div>
+    <div className="bg-white py-3 px-10 rounded-xl  shadow-md shadow-slate-200 items-center grid grid-cols-3 w-[1500px] justify-self-center">
+      <img src={logo} className="max-h-[40px]" />
       <div className="flex gap-8 items-center justify-self-center">
-        <Link to={"/account"}>
+        <Link to={"/"}>
+          <p className="headingItem">Domovský portál</p>
+        </Link>
+        <Link to={"/templates"}>
           <p className="headingItem">Šablony</p>
         </Link>
         <Link to={"/account"}>

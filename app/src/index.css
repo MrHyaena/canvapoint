@@ -7,6 +7,7 @@
 
   --color-primary: var(--color-blue-500);
   --color-primaryDarker: var(--color-blue-700);
+  --color-secondary: var(--color-slate-800);
 
   --color-textDark: var(--color-slate-900);
   --color-textDarker: var(--color-zinc-700);
@@ -19,7 +20,7 @@
 }
 
 .headingItem {
-  @apply hover:text-primaryDarker transition-all cursor-pointer text-lg text-slate-800 font-bold;
+  @apply hover:text-primaryDarker transition-all cursor-pointer text-lg text-slate-800 font-bold font-oswald;
 }
 
 h1,
