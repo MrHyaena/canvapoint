@@ -1,8 +1,8 @@
-import { faSquare, IconLookup } from "@fortawesome/free-regular-svg-icons";
-import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { faDownload, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import TemplateDetails from "./TemplateDetails";
+import { faStackExchange } from "@fortawesome/free-brands-svg-icons";
 
 interface Props {
   item: {
@@ -35,10 +35,29 @@ export default function TemplateItem({ item }: Props) {
             backgroundImage: `url(${item.image})`,
             backgroundSize: "cover",
           }}
-          className="rounded-t-2xl min-h-[250px] w-full object-cover z-0 flex items-end justify-end"
+          className="rounded-t-2xl min-h-[250px] w-full object-cover z-0 flex flex-col items-stretch justify-between p-3"
         >
+          <div className="flex gap-2 flex-wrap items-center justify-between">
+            <div className="flex gap-2">
+              {item.category.map((item: string) => {
+                return (
+                  <>
+                    <p className="p-1 px-2 rounded-full font-bold text-sm bg-white text-textDarker">
+                      {item}
+                    </p>
+                  </>
+                );
+              })}
+            </div>
+            <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center group cursor-pointer">
+              <FontAwesomeIcon
+                icon={faStar}
+                className="group-hover:text-amber-300 text-textLighter"
+              />
+            </div>
+          </div>
           <div className="flex justify-end pr-3">
-            <div className="w-[80px] h-[80px] bg-primary shadow-[0px_0px_8px_0px] shadow-slate-800 mt-[-70px] mb-[-40px] rounded-xl flex flex-col items-center justify-center text-textLight font-semibold">
+            <div className="w-[70px] h-[70px] bg-primary shadow-[0px_0px_8px_0px] shadow-slate-800 mt-[-40px] mb-[-40px] rounded-xl flex flex-col items-center justify-center text-textLight font-semibold">
               <p className="text-xl mt-[-5px]">{item.templatesNumber}</p>
               <p className="mt-[-5px]  text-sm">karet</p>
             </div>
@@ -46,17 +65,6 @@ export default function TemplateItem({ item }: Props) {
         </div>
 
         <div className="min-h-[200px] p-5 flex flex-col gap-3">
-          <div className="flex gap-2 flex-wrap">
-            {item.category.map((item: string) => {
-              return (
-                <>
-                  <p className="p-1 px-2 rounded-md font-semibold text-sm bg-secondary text-textLight">
-                    {item}
-                  </p>
-                </>
-              );
-            })}
-          </div>
           <div>
             <h2 className="text-xl font-semibold">{item.name}</h2>
 

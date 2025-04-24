@@ -9,7 +9,7 @@ export default function TemplatesList() {
   const items = [
     {
       image: image,
-      gallery: [1, 2, 3, 4],
+      gallery: [image, two, three, image],
       name: "Template",
       category: ["Fitness", "Business", "Lab"],
       type: ["square", "portrait", "story"],
@@ -20,7 +20,7 @@ export default function TemplatesList() {
     },
     {
       image: two,
-      gallery: [1, 2, 3, 4],
+      gallery: [image, two, three, image, image, two, three],
       name: "Template",
       category: ["Fitness", "Business", "Lab"],
       type: ["square", "portrait", "story"],
@@ -31,7 +31,7 @@ export default function TemplatesList() {
     },
     {
       image: three,
-      gallery: [1, 2, 3, 4],
+      gallery: [image, two, three, image, image, two, three],
       name: "Template",
       category: ["Fitness", "Business", "Lab"],
       type: ["square", "portrait", "story"],
@@ -42,7 +42,7 @@ export default function TemplatesList() {
     },
     {
       image: two,
-      gallery: [1, 2, 3, 4],
+      gallery: [image, two, three, image, image, two, three],
       name: "Template",
       category: ["Fitness", "Business", "Lab"],
       type: ["square", "portrait", "story"],

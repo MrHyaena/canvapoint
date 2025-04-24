@@ -16,7 +16,7 @@ function ProtectedRoute() {
           className="text-4xl text-textLight"
         />
       </div>
-      <div className="grid gird-rows-[100px_1fr] gap-10 w-full bg-linear-210 from-slate-100 to-white p-5">
+      <div className="grid gird-rows-[100px_1fr] gap-10 w-full bg-linear-210 from-slate-100 to-white px-5 pb-10">
         <Navbar />
         <div className="max-w-[1500px] justify-self-center">
           <main>
