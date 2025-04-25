@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import Templates from "./pages/Templates";
 import Homepage from "./pages/Homepage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquareCaretUp } from "@fortawesome/free-regular-svg-icons";
 import { faCircleUp } from "@fortawesome/free-solid-svg-icons";
 
 function ProtectedRoute() {
@@ -16,14 +15,13 @@ function ProtectedRoute() {
           className="text-4xl text-textLight"
         />
       </div>
-      <div className="grid gird-rows-[100px_1fr] gap-10 w-full bg-linear-210 from-slate-100 to-white px-5 pb-10">
+      <div className="flex flex-col items-center gap-10 w-full bg-linear-210 from-slate-100 to-white px-5 pb-10 min-h-screen">
         <Navbar />
         <div className="max-w-[1500px] justify-self-center">
           <main>
             <Routes>
-              <Route path="*" element={<Homepage />} />
               <Route path="/account" element={<Account />} />
-              <Route path="/templates" element={<Templates />} />
+              <Route path="*" element={<Templates />} />
             </Routes>
           </main>
         </div>

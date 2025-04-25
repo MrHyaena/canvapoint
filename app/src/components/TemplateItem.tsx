@@ -42,7 +42,7 @@ export default function TemplateItem({ item }: Props) {
               {item.category.map((item: string) => {
                 return (
                   <>
-                    <p className="p-1 px-2 rounded-full font-bold text-sm bg-white text-textDarker">
+                    <p className="p-1 px-2 rounded-md font-bold text-sm bg-white text-textDarker">
                       {item}
                     </p>
                   </>
